@@ -11,13 +11,13 @@ def get_faces(gray):
     faces = []
     faces_detected = face_cascade.detectMultiScale(gray, 1.3, 5)
     for i, (x,y,w,h) in enumerate(faces_detected):
-        my = y + h/2
-        mx = x + w/2
+        my = int(y + h/2)
+        mx = int(x + w/2)
 
         if h<w:
-            c = h/2
+            c = int(h/2)
         else:
-            c = w/2
+            c = int(w/2)
 
         face = gray[my-c:my+c, mx-c:mx+c]
         face_48 = cv2.resize(face,(48, 48), interpolation = cv2.INTER_CUBIC)
