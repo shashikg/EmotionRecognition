@@ -18,9 +18,14 @@ while(True):
         roi_color = img[y:y+h, x:x+w]
         my = y + h/2
         mx = x + w/2
-        c = (h + w)/2
-        face = img[my-c:my+c, my-c:my+c]
-        cv2.imshow(str(i),roi_color)
+        if h<w:
+            c = h/2
+        else:
+            c = w/2
+
+        face = img[my-c:my+c, mx-c:mx+c]
+        face_48 = cv2.resize(face,(48, 48), interpolation = cv2.INTER_CUBIC)
+        cv2.imshow(str(i),face_48)
 
     cv2.imshow('img',img)
 
