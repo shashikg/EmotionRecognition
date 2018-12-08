@@ -1,2 +1,5 @@
 # Data files
 data/*
+__pycache__/*
+detectfaces.pyc
+.ipynb_checkpoints
