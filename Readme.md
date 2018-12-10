@@ -5,6 +5,11 @@ This repo contains files related to my project on emotion recognition carried du
 
 **Link to Demo Video:** [https://youtu.be/XVQSMbeBGZQ](https://youtu.be/XVQSMbeBGZQ)
 
+## Training Results
+**Accuracy Achieved on Test Data:** 65.34 %
+**Confusion Matrix:**
+![Confusion Matrix](cm.png)
+
 ## Usage
 Install all the dependencies in a virtual environment
 ```
