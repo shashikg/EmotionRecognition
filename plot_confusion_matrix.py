@@ -47,7 +47,8 @@ print('3/3')
 print("Loading Complete!")
 
 def plot_confusion_matrix(cm):
-    cm = cm.astype('float') / np.sum(cm, axis=1)
+    print(cm)
+    cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
     plt.imshow(cm, interpolation='nearest', cmap=plt.cm.Blues)
     plt.title('Confusion Matrix on Private Test Data')
     plt.colorbar()
@@ -74,5 +75,5 @@ yp = np.argmax(y_pred, axis=1)
 yt = np.argmax(y_test, axis=1)
 cm = confusion_matrix(yt, yp)
 plot_confusion_matrix(cm)
-plt.savefig("cm.png")
+plt.savefig("img/cm.png")
 plt.show()

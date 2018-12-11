@@ -181,7 +181,7 @@ for i, m in enumerate(model):
         pt = m.predict(x_test_rev)
     p_tr.append(p)
     p_te.append(pt)
-#     m.save('cnn'+str(i)+'.h5')
+    m.save('saved_model/cnn'+str(i)+'.h5')
 
 print(len(model))
 
@@ -217,7 +217,7 @@ history = modele.fit(p_train, y_train,
                     validation_data=(p_test, y_test))
 
 score = modele.evaluate(p_test, y_test, verbose=0)
-m.save('ensemble.h5')
+m.save('saved_model/ensemble.h5')
 
 print('NN Based Ensembled Model')
 print('Test loss:', score[0])

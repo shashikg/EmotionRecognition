@@ -1,17 +1,20 @@
 # Real Time Human Emotion Recognition
 This repo contains files related to my project on emotion recognition carried during the end of my 5th semester as a hobby project. Presently, its capable of extracting faces from a web cam stream and classify them into 7 different moods i.e. Angry, Disgust, Fear, Happy, Sad, Surprise and Neutral. The face detection module uses already trained Haar-Cascade Classifier from OpenCV. And Classifier was trained on the **ICML 2013** dataset of [Facial Expression Recognition Challenge](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge) on kaggle.
 
-![Happy Demo](happy-demo.png)
+<p align="center"><img src='img/happy-demo.png'/)</p>
 
 **Link to Demo Video:** [https://youtu.be/XVQSMbeBGZQ](https://youtu.be/XVQSMbeBGZQ)
 
 ## Training Results
 **Accuracy Achieved on Test Data:** 65.34 %
-**Confusion Matrix:**
-![Confusion Matrix](cm.png)
+<!-- **Confusion Matrix:** -->
+<p align="center"><img src='img/cm.png'/></p>
+
+## Proposed Neural Network Architecture
+<p align="center"><img src='img/nn_architecture.png'/></p>
 
 ## Usage
-Install all the dependencies in a virtual environment
+Download the **Dataset** from [here](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge) and put **fer2013.csv** inside the data folder. Then install all the dependencies in a virtual environment
 ```
 $ virtualenv --system-site-packages -p python3 ./venv
 $ source ./venv/bin/activate
@@ -19,7 +22,7 @@ $ pip install -r requirements.txt
 ```
 Then run the following commands to test the module
 ```
-# To train the a new model
+# To train a new model
 $ python emotion_trainer.py
 
 # To run the emotion recognition module
@@ -38,7 +41,8 @@ $ python emotion_recogniser.py
 ├── emotion_trainer(.py/ .ipynb) .................:: This will train the designed Neural Network model on the given dataset
 ├── emotion_recogniser.py ........................:: This is the main program which will show real-time emotion classification
 │                                                    using the models saved in the directory 'saved_model/'
-├── test.jpeg
+├── plot_confusion_matrix.py .....................:: Used to generate the confusion matrix of the trained model
+├── img/ .........................................:: Contains some images related to results and for testing
 ├── requirements.txt
 └── README.md
 ```
