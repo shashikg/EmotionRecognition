@@ -45,17 +45,17 @@ if not cap.isOpened():
 
 while(True):
     ret, img = cap.read()
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-    faces = get_faces(gray)
+    faces = get_faces(img, method='dnn')
     for i, (y,x,face) in enumerate(faces):
         pre = predict(face)
         k = np.argmax(pre)
         txt = emotion[k] + ' [' + str(int(pre[0,k]*100)) + '%]'
         cv2.putText(img, txt, (x, y), font, 0.5,(0,255,0),1,cv2.LINE_AA)
+        # cv2.imshow(str(i), face)
 
     cv2.imshow('Camera', img)
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    if cv2.waitKey(20) & 0xFF == ord('q'):
         break
 
 cap.release()
